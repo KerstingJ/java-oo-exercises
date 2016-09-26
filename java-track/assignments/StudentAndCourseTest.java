@@ -1,9 +1,12 @@
-package pset9;
+
+
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 
 import junit.framework.TestCase;
+
+// following along with the video
 
 public class StudentAndCourseTest extends TestCase {
 
