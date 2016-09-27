@@ -67,10 +67,21 @@ public class Student {
 		this.qualityScore += grade * credits;
 		this.credits += credits;
 	}
+	
+	public void submitGrade(int grade, int credits) {
+		this.qualityScore += grade * credits;
+		this.credits += credits;
+	}
 
-	public int computeTuition() {
+	public Double computeTuition() {
 		
-		return 4;
+		Double tuition = (this.credits / 15) * 20000.0;
+		
+		if (this.credits % 15 != 0) {
+			tuition += 20000.0;
+		}
+		
+		return tuition;
 	}
 	
 	public Student createLegacy(Student other) {
