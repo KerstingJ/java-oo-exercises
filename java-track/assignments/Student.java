@@ -1,5 +1,6 @@
 
 public class Student {
+
 	private String firstName;
 	private String lastName;
 	private Integer studentId;
@@ -74,17 +75,27 @@ public class Student {
 	}
 
 	public Double computeTuition() {
+		//Double tuition = ((float)this.credits / 15.0) * 20000.0;
+		//tuition = (double)(Math.round(tuition * 100) / 100);
+		Double tuition;
 		
-		Double tuition = (this.credits / 15) * 20000.0;
+		System.out.println(this.credits);
 		
-		if (this.credits % 15 != 0) {
-			tuition += 20000.0;
+		if (this.credits % 15 != 0 && this.credits > 15) {
+			tuition = (this.credits / 15) * 20000.0;
+			tuition += (this.credits % 15) * 1333.33;
+					
+		} else if (this.credits % 15 == 0) {
+			tuition = (this.credits / 15) * 20000.0;
+			
+		} else {
+			tuition = 1333.33 * this.credits;
 		}
 		
-		return tuition;
+		return tuition; // Double.valueOf(String.format("%.2f", tuition));
 	}
 	
-	public Student createLegacy(Student other) {
+	public Student createLegacy(Student one, Student other) {
 		int newID = this.studentId + other.getStudentID();
 		int newCredits = Integer.max(this.credits, other.getCredits());
 		Double newQuality = (((this.getGPA() + other.getGPA()) / 2) * newCredits);
@@ -95,4 +106,10 @@ public class Student {
 		return String.format("%s %s %d", this.firstName, this.lastName, this.studentId);
 	}
 	
+	public static void main(String[] args){
+		Student s = new Student("", "", 1);
+		s.submitGrade(0, 15);
+		System.out.println(s.getCredits());
+		System.out.println(s.computeTuition());
+	}
 }
