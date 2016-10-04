@@ -61,9 +61,4 @@ public class Course {
 	public String toString() {
 		return String.format("%s %d", name, credits);
 	}
-	
-//	public static void main(String[] args) {
-//		Course c = new Course("cs101", 2, 4);
-//		System.out.println(c.getRemainingSeats());
-//	}
 }
