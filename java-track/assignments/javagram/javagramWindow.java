@@ -69,7 +69,8 @@ public class javagramWindow {
 		
 		JList<String> list = new JList<>();
 		list.setModel(new AbstractListModel() {
-			String[] values = new String[] {"Blue Filter", "Greyscale Filter", "5px Box Blur"};
+			String[] values = new String[] {"Blue Filter", "Greyscale Filter", 
+					"5px Box Blur", "Inverse Image", "High Contrast"};
 			public int getSize() {
 				return values.length;
 			}
@@ -97,6 +98,5 @@ public class javagramWindow {
 		});
 		btnNewButton.setBounds(6, 228, 438, 44);
 		frame.getContentPane().add(btnNewButton);
-	
 	}
 }
